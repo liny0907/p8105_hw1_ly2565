@@ -1,0 +1,20 @@
+---
+title: "p8105_hw1_ly2565"
+author: "Lin Yang"
+date: "9/23/2021"
+output: github_document
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
