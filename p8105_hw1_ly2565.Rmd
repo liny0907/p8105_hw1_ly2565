@@ -35,7 +35,9 @@ vec_char_mean = mean(pull(df, vec_char))
 vec_factor_mean = mean(pull(df, vec_factor))
 ```
 
-#The mean of random sample is `norm_samp_mean`, the mean of logical vector is `norm_samp_pos_mean`. However, when I try to take the means of character vector and factor vector, it returns that argument is not numeric or logical.
+* The mean of random sample is `r norm_samp_mean`.
+* The mean of logical vector is `r norm_samp_pos_mean`. 
+* However, when I try to take the means of character vector and factor vector, it returns that argument is not numeric or logical.
 
 ## Convert variables
 
@@ -47,14 +49,34 @@ vec_char_num = as.numeric(pull(df, vec_char))
 vec_factor_num = as.numeric(pull(df, vec_factor))
 ```
 
-#The logical vector `norm_samp_pos` is converted to a numeric vector: true to 1, false to 0.
+* The logical vector *norm_samp_pos* is converted to a numeric vector: true to 1, false to 0.
 
-#The factor vecotr `vec_factor` is converted to a numeric vector: large to 1, medium to 2, small to 3. Now, the mean can be calculated.
+* The factor vecotr *vec_factor* is converted to a numeric vector: large to 1, medium to 2, small to 3. Now, the mean can be calculated.
 
-#The character vector `vec_char` is converted to a numeric vector: result in **NAs introduced by coercion **, the vector is now compsoed only of 10 NAs, and the mean is just NA.
+* The character vector *vec_char* is converted to a numeric vector: result in **NAs introduced by coercion**, the vector is now compsoed only of 10 NAs, and the mean is just NA.
 
 
+# Problem 2
 
+## Load the penguins dataset
+
+```{r}
+data("penguins", package = "palmerpenguins")
+names(penguins)
+```
+
+## Describe the penguins dataset
+
+* The names of variables in the dataset are `r names(penguins)`.
+* There are `r nrow(penguins)` rows and `r ncol(penguins)` columns in the dataset.
+* The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm after removing all missing data in the flipper length column.
+
+## Make a scatterplot and export
+
+```{r, warning = FALSE}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("scatterplot_hw1.pdf")
+```
 
 
 
