@@ -7,7 +7,7 @@ output: github_document
 
 # Problem 1
 
-```{r}
+```{r, include = FALSE}
 library(tidyverse)
 ```
 
@@ -70,6 +70,10 @@ penguins
 ## Describe the penguins dataset
 
 * This is a tibble data frame about penguins with names of variables:  `r names(penguins)`.
+* The bill length has a range of `r range(pull(penguins, bill_length_mm), na.rm = TRUE)` and a mean of `r mean(pull(penguins, bill_length_mm), na.rm = TRUE)` mm.
+* The bill depth has a range of `r range(pull(penguins, bill_depth_mm), na.rm = TRUE)` and a mean of `r mean(pull(penguins, bill_depth_mm), na.rm = TRUE)` mm.
+* The flipper length has a range of `r range(pull(penguins, flipper_length_mm), na.rm = TRUE)`.
+* The body mass has a range of `r range(pull(penguins, body_mass_g), na.rm = TRUE)` and a mean of `r mean(pull(penguins, body_mass_g), na.rm = TRUE)` g.
 * There are `r nrow(penguins)` rows and `r ncol(penguins)` columns in the dataset.
 * The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)` mm after removing all missing data in the flipper length column.
 
